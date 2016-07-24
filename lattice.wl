@@ -2,8 +2,9 @@
 
 BeginPackage["Lattice`"]
 
-getLattice::usage = 
-	"getLattice[ L,d] returns a bimodal EA lattice as a Graph."
+getLattice::usage = "getLattice[ L,d] returns a bimodal EA lattice as a Graph.";
+nextVertex::usage = "nextVertex[i,j,L] returns the next vertex in j direction (dimension) or False if v is boundary"
+previousVertex::usage = "previousVertex[i,j,L] returns the previous vertex in j direction (dimension) or False if v is boundary"
 
 Begin["`Private`"];
 
@@ -12,8 +13,13 @@ getLattice[L_,d_] := G[L,d];
 J1=1;
 J2=-1;
 p=1/2;
-
+(*True if node (i) is boundary, j dimension iterator*)
 isBoundaryEdge[i_, j_, L_] := L^j - L^(j - 1) - Mod[i - 1, L^j] <= 0;
+
+nextVertex[i_,j_,L_] := If[isBoundaryEdge[i, j, L], False, i + L^(j - 1)];
+
+previousVertex[i_,j_,L_] := If[isBoundaryEdge[i - L^(j - 1), j, L], False, i - L^(j - 1)];
+
 
 makeInternalEdges[i_, d_, L_] :=
   Fold[If[isBoundaryEdge[i, #2, L], #1,
@@ -30,8 +36,6 @@ makeBoundaryPeriodicEdges[i_, d_, L_] :=
 boundaryEdges[L_,d_] :=
   Flatten[Fold[Append[#1, makeBoundaryPeriodicEdges[#2, d, L]] &, {},
     Range[1, L^d]], 1];
-
-
 ed[L_,d_] := interalEdges[L,d];
 
 (*
@@ -64,6 +68,9 @@ Join[
 
 End[]
 EndPackage[]
+
+
+
 
 
 
