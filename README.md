@@ -16,8 +16,8 @@
 
 |  | Filename    | Description   | Tests|
 |----|-------------|---------------|-----|
-| 1  |lattice.nb   | Function creating a DAG EA Bimodal lattice $L$ given L,d. |0|
-|2|mapping.nb| maps configuration to matching|1-2|
+| 1  |lattice.wl   | Mathematica package for creating a DAG EA Bimodal lattice $L$ given L,d. |0|
+|2|mapping.nb|Mathematica notebook for mapping sping configurations to matching|1-2|
 
 
 <sup>
