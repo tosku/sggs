@@ -45,9 +45,9 @@ periodicEdges[L_,d_] :=
     Range[1, L^d]], 1];
 ed[L_,d_] := interalEdges[L,d];
 
-(*
-ed[L_,d_] := Join[interalEdges[L,d], boundaryEdges[L,d]]
-*)
+
+(*ed[L_,d_] := Join[interalEdges[L,d], periodicEdges[L,d]];*)
+
 
 cc[v_] := {v,
    PropertyValue[{gr, #}, EdgeWeight] & /@
