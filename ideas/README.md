@@ -13,8 +13,6 @@
 | 1  |lattice.wl   | Mathematica package for creating a DAG EA Bimodal lattice $L$ given L,d. |-|
 |2|barahona.nb|Mathematica notebook for mapping planar spin glass lattices to to barahona matching dual graphs|1|
 |3|kasteleyn.nb|Mathematica notebook for mapping planar spin glass lattices to to Kasteleyn matching dual graphs|1|
-|4|ideas/fundcycles.nb|creating fundamendal cycles for all types of lattices|-|
-|4|ideas/mapping2totoroidal.nb|explore the matching solution for toroidal lattices |-|
 
 
 <sup>
